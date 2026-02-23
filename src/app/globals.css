@@ -6,6 +6,16 @@
 
 
 :root {
+  /* Fit Flow Brand Colors */
+  --color-primary: #1E88E5;
+  --color-primary-dark: #1565C0;
+  --color-gold: #D4AF37;
+  --color-gold-dark: #B8960C;
+  --color-navy: #0F172A;
+  --color-surface: #1E293B;
+  --color-text: #F1F5F9;
+  --color-text-muted: #94A3B8;
+
   /* --primary-color: #5a5bb5; */
   --secondary-color: #010211;
   --body-color: #fff;

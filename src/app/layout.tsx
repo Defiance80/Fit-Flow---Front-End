@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" version={process.env.NEXT_PUBLIC_WEB_VERSION}>
+    <html lang="en" data-version={process.env.NEXT_PUBLIC_WEB_VERSION}>
       <body className={`${geist.variable} font-sans !pointer-events-auto`} suppressHydrationWarning>
         <StoreProvider>
           <Toaster position="top-center" toastOptions={{

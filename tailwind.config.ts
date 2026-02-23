@@ -13,7 +13,17 @@ export default {
 		extend: {
 			colors: {
 				background: 'var(--background)',
-				foreground: 'var(--foreground)'
+				foreground: 'var(--foreground)',
+				fitflow: {
+					blue: '#1E88E5',
+					'blue-dark': '#1565C0',
+					gold: '#D4AF37',
+					'gold-dark': '#B8960C',
+					navy: '#0F172A',
+					surface: '#1E293B',
+					text: '#F1F5F9',
+					muted: '#94A3B8',
+				}
 			},
 			fontFamily: {
 				montserrat: [
