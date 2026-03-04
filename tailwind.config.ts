@@ -15,8 +15,8 @@ export default {
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
 				fitflow: {
-					blue: '#1E88E5',
-					'blue-dark': '#1565C0',
+					blue: '#0D9488',
+					'blue-dark': '#0F766E',
 					gold: '#D4AF37',
 					'gold-dark': '#B8960C',
 					navy: '#0F172A',

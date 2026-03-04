@@ -199,45 +199,45 @@ body {
 @config "../../tailwind.config";
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --background: #1a1a1a;
+  --foreground: #fafafa;
+  --card: #1a1a1a;
+  --card-foreground: #fafafa;
+  --popover: #1a1a1a;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #2b2b2b;
+  --secondary: #3a3a3a;
+  --secondary-foreground: #fafafa;
+  --muted: #3a3a3a;
+  --muted-foreground: #a3a3a3;
+  --accent: #3a3a3a;
+  --accent-foreground: #fafafa;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #ef4444;
+  --border: #3a3a3a;
+  --input: #3a3a3a;
+  --ring: #636363;
+  --chart-1: #3b82f6;
+  --chart-2: #22c55e;
+  --chart-3: #eab308;
+  --chart-4: #a855f7;
+  --chart-5: #ef4444;
 
   /* === Updated Sidebar Colors === */
-  --sidebar-background: oklch(0.112 0.032 276.6);
+  --sidebar-background: #010211;
   /* #010211 */
-  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-foreground: #fafafa;
   /* Almost white text */
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: #3b82f6;
   /* Existing primary, ensure it contrasts with new bg */
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary-foreground: #fafafa;
   /* White text for primary elements */
-  --sidebar-accent: oklch(0.2 0.01 276.6);
+  --sidebar-accent: #1a1a2e;
   /* Slightly lighter than bg for hover/accent bg */
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-accent-foreground: #fafafa;
   /* Border color, slightly lighter than bg */
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-ring: #636363;
   /* Existing ring color */
 }
 
@@ -556,4 +556,14 @@ input[type=number]::-webkit-outer-spin-button {
 /* Ensure proper spacing between elements */
 .rich-text-content > *:not(:last-child) {
   margin-bottom: 1em;
+}
+/* ===== Fit Flow Hero Animations ===== */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+@keyframes scroll-dot {
+  0%, 100% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(4px); }
 }

@@ -33,10 +33,10 @@ const Courses: React.FC = () => {
     <Layout>
       <div className="commonGap">
         <div>
-          <div className="bg-[#0F172A] py-8 md:py-12">
+          <div className="sectionBg py-8 md:py-12">
             <div className="container space-y-4">
-              <div className="bg-white/10 rounded-full py-2 px-4 w-max flexCenter gap-1 text-white">
-                <Link href={"/"} className="text-white hover:text-[#1E88E5]" title={t("home")}>
+              <div className="bg-white rounded-full py-2 px-4 w-max flexCenter gap-1">
+                <Link href={"/"} className="primaryColor" title={t("home")}>
                   {t("home")}
                 </Link>
                 <span>
@@ -45,10 +45,10 @@ const Courses: React.FC = () => {
                 <span>{t("courses")}</span>
               </div>
               <div className="flexColCenter items-start gap-2">
-                <h1 className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-[44px] text-white">
+                <h1 className="font-semibold text-2xl sm:text-3xl md:text-3xl lg:text-[40px]">
                   {t("unlock_learning_pathways_by_categories")}
                 </h1>
-                <p className="text-[#94A3B8] lg:w-[52%]">
+                <p className="sectionPara lg:w-[52%]">
                   {t("courses_description")}
                 </p>
               </div>

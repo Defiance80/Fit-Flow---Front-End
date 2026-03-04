@@ -32,6 +32,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-version={process.env.NEXT_PUBLIC_WEB_VERSION}>
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
       <body className={`${geist.variable} font-sans !pointer-events-auto`} suppressHydrationWarning>
         <StoreProvider>
           <Toaster position="top-center" toastOptions={{

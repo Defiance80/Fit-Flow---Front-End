@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-fitflow-navy/90 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/fitflow-logo.png" alt="Fit Flow — Fitness Management Platform" width={48} height={48} />
+          <Image src="/fitflow-logo.png" alt="Fit Flow — Fitness Management Platform" width={48} height={48} className="object-contain" />
           <span className="text-xl font-bold text-fitflow-text hidden sm:inline">Fit Flow</span>
         </Link>
         {/* Desktop */}
@@ -29,7 +29,7 @@ export default function Navbar() {
           ))}
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/courses" className="border border-fitflow-blue text-fitflow-blue px-4 py-2 rounded-lg text-sm hover:bg-fitflow-blue/10 transition">
+          <Link href="/login" className="border border-fitflow-blue text-fitflow-blue px-4 py-2 rounded-lg text-sm hover:bg-fitflow-blue/10 transition">
             Login
           </Link>
           <Link href="/contact" className="bg-fitflow-gold hover:bg-fitflow-gold-dark text-fitflow-navy px-4 py-2 rounded-lg text-sm font-semibold transition">
@@ -48,7 +48,7 @@ export default function Navbar() {
               {l.label}
             </Link>
           ))}
-          <Link href="/courses" className="block border border-fitflow-blue text-fitflow-blue px-4 py-2 rounded-lg text-sm text-center">Login</Link>
+          <Link href="/login" className="block border border-fitflow-blue text-fitflow-blue px-4 py-2 rounded-lg text-sm text-center">Login</Link>
           <Link href="/contact" className="block bg-fitflow-gold text-fitflow-navy px-4 py-2 rounded-lg text-sm font-semibold text-center">Request a Demo</Link>
         </div>
       )}

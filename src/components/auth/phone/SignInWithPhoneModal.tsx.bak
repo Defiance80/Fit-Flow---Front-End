@@ -120,28 +120,28 @@ const SignInWithPhoneModal: React.FC<SignInWithPhoneModalProps> = ({
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-[450px] p-0 bg-[#0F172A] border border-white/10 rounded-lg shadow-xl text-white [&_label]:text-[#94A3B8] [&_input]:bg-[#1E293B] [&_input]:border-white/10 [&_input]:text-white">
+        <DialogContent className="sm:max-w-[450px] p-0 bg-white rounded-lg shadow-xl">
           <DialogTitle className="sr-only">
             {t("sign_in_with_phone_number")}
           </DialogTitle>
 
           <div className="p-4 !pb-0 flex justify-between items-center">
             <div className="w-full">
-              <h2 className="text-xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-gray-900">
                 {t("sign_in_create_account")}
               </h2>
-              <p className="text-sm text-[#94A3B8]">
+              <p className="text-sm text-gray-500">
                 {t("enter_mobile_description")}
               </p>
             </div>
           </div>
 
           {/* divider */}
-          <hr className="border-white/10" />
+          <hr className="border-gray-200" />
 
           <div className="px-4">
             <div className="mb-4">
-              <label className="block text-sm sm:text-base font-medium text-[#94A3B8] mb-1">
+              <label className="block text-sm sm:text-base font-medium text-gray-700 mb-1">
                 {t("phone_number")} <span className="text-red-500 ml-[-2px]">*</span>
               </label>
               <PhoneInput
@@ -152,7 +152,7 @@ const SignInWithPhoneModal: React.FC<SignInWithPhoneModalProps> = ({
                   name: "contactNumber",
                   id: "contactNumber",
                   required: true,
-                  className: `w-full border border-white/10 rounded-md phone-input-custom pl-12`,
+                  className: `w-full border border-gray-300 rounded-md phone-input-custom pl-12`,
                 }}
                 placeholder="1234567890"
               />
@@ -160,7 +160,7 @@ const SignInWithPhoneModal: React.FC<SignInWithPhoneModalProps> = ({
 
             <Button
               onClick={handleUserExists}
-              className="w-full bg-gradient-to-r from-[#0D9488] to-[#0F766E] text-white font-normal py-2.5 h-12 rounded-md hover:opacity-90 transition-all duration-300 md:text-xl"
+              className="w-full primaryBg text-white font-normal py-2.5 h-12 rounded-md hover:hoverBgColor transition-all duration-300 md:text-xl"
               disabled={!phoneNumber.number || phoneNumber.number.length < 8}
             >
               {t("continue")}

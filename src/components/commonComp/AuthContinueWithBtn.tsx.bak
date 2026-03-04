@@ -94,9 +94,9 @@ const AuthContinueWithBtn: React.FC<AuthContinueWithBtnProps> = ({ onOpenChange,
         <>
             {/* OR separator */}
             <div className="relative flex items-center mx-6 overflow-hidden">
-                <div className="absolute left-0 right-0 border-t border-white/10"></div>
-                <div className="relative z-[1] mx-auto bg-[#0F172A] px-4">
-                    <span className="text-xs font-medium text-[#94A3B8] bg-[#1E293B] w-[30px] h-[30px] flex items-center justify-center rounded-full">
+                <div className="absolute left-0 right-0 border-t border-gray-200"></div>
+                <div className="relative z-[1] mx-auto bg-white px-4">
+                    <span className="text-xs font-medium text-gray-500 bg-gray-100 w-[30px] h-[30px] flex items-center justify-center rounded-full">
                         {t("or")}
                     </span>
                 </div>
@@ -104,7 +104,7 @@ const AuthContinueWithBtn: React.FC<AuthContinueWithBtnProps> = ({ onOpenChange,
             <div className="space-y-3 px-6">
                 <Button
                     variant="outline"
-                    className="sm:!text-base w-full flex items-center justify-center gap-2 py-3 bg-[#1E293B] border border-white/10 hover:bg-white/5 text-white font-normal rounded-md"
+                    className="sm:!text-base w-full flex items-center justify-center gap-2 py-3 border border-gray-300 hover:bg-gray-50 text-gray-700 font-normal rounded-md"
                     onClick={() => signInWithGoogle()}
                 >
                     <FcGoogle className="h-6 w-6" />
@@ -114,7 +114,7 @@ const AuthContinueWithBtn: React.FC<AuthContinueWithBtnProps> = ({ onOpenChange,
                     isMobileModal ?
                         <Button
                             variant="outline"
-                            className="sm:!text-base w-full flex items-center justify-center gap-2 py-3 bg-[#1E293B] border border-white/10 hover:bg-white/5 text-white font-normal rounded-md"
+                            className="sm:!text-base w-full flex items-center justify-center gap-2 py-3 border border-gray-300 hover:bg-gray-50 text-gray-700 font-normal rounded-md"
                             onClick={() => handleEmailClick?.()}
                         >
                             <IoIosMail className="h-6 w-6" />
@@ -123,7 +123,7 @@ const AuthContinueWithBtn: React.FC<AuthContinueWithBtnProps> = ({ onOpenChange,
                         :
                         <Button
                             variant="outline"
-                            className="sm:!text-base w-full flex items-center justify-center gap-2 py-3 bg-[#1E293B] border border-white/10 hover:bg-white/5 text-white font-normal rounded-md"
+                            className="sm:!text-base w-full flex items-center justify-center gap-2 py-3 border border-gray-300 hover:bg-gray-50 text-gray-700 font-normal rounded-md"
                             onClick={() => handlePhoneClick()}
                         >
                             <Smartphone className="h-6 w-6" />
@@ -132,23 +132,23 @@ const AuthContinueWithBtn: React.FC<AuthContinueWithBtnProps> = ({ onOpenChange,
                 }
             </div>
             {/* divider */}
-            <hr className="border-white/10 mt-2" />
+            <hr className="borderColor mt-2" />
 
             <div className="px-6 pb-6 text-center flex flex-col gap-1 font-semibold text-sm sm:text-base">
-                <p className="!font-normal text-sm text-[#94A3B8]">
+                <p className="!font-normal text-sm">
                     {t("by_creating_account_agree")}
                 </p>
                 <div className="flex justify-center gap-1">
                     <Link
                         href="/terms-of-service"
-                        className="text-[#1E88E5] hover:underline"
+                        className="primaryColor hover:underline"
                     >
                         {t("terms_of_service")}
                     </Link>
                     <span className="">{t("and")}</span>
                     <Link
                         href="/privacy-policy"
-                        className="text-[#1E88E5] hover:underline"
+                        className="primaryColor hover:underline"
                     >
                         {t("privacy_policy")}
                     </Link>

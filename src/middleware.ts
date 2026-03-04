@@ -10,7 +10,6 @@ export function middleware(request: NextRequest) {
   // Create the response object early
   const response = NextResponse.next()
 
-  console.log('authToken', authToken)
 
   // If no token and accessing a private route, redirect to home
   if (!authToken) {
@@ -32,6 +31,8 @@ export const config = {
     '/account-security',
     '/my-learnings',
     '/my-wishlist',
+    '/courses/:path*',
+    '/course-details/:path*',
     '/notifications',
     '/transaction-history',
     '/delete-account',

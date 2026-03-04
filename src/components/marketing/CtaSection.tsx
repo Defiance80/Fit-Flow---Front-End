@@ -6,7 +6,7 @@ export default function CtaSection() {
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-fitflow-text mb-4">Ready to Transform Your Fitness Business?</h2>
         <p className="text-fitflow-muted max-w-2xl mx-auto mb-10">
-          Join 500+ fitness professionals who use Fit Flow to manage clients, track health data, and grow revenue. Request a free demo today.
+          Be among the first fitness professionals to experience Fit Flow. Request a free demo and see how we can help you manage clients, track health data, and grow revenue.
         </p>
         <DemoForm />
       </div>

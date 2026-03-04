@@ -37,21 +37,36 @@ const FirebaseData = (): FirebaseDataReturn => {
     measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_I || ""
   }
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig)
+  // Guard against invalid/placeholder Firebase config
+  const isValidConfig = firebaseConfig.apiKey && !firebaseConfig.apiKey.includes("xxxx");
+  
+  if (isValidConfig && !firebase.apps.length) {
+    try {
+      firebase.initializeApp(firebaseConfig)
+    } catch (e) {
+      console.warn("Firebase init failed:", e)
+    }
   }
 
-  const authentication = getAuth()
-
-  const firebaseApp: FirebaseApp = !getApps().length
-    ? initializeApp(firebaseConfig)
-    : getApp()
+  let authentication: Auth | null = null;
+  let firebaseApp: FirebaseApp | null = null;
+  
+  try {
+    firebaseApp = !getApps().length
+      ? initializeApp(firebaseConfig)
+      : getApp();
+    authentication = getAuth(firebaseApp!);
+  } catch (e) {
+    console.warn("Firebase app init failed:", e);
+    firebaseApp = null as any;
+    authentication = null as any;
+  }
 
   const messagingInstance = async (): Promise<Messaging | null> => {
     try {
       const isSupportedBrowser = await isSupported()
       if (isSupportedBrowser) {
-        return getMessaging(firebaseApp)
+        return getMessaging(firebaseApp!)
       }
       return null
     } catch (err) {
@@ -131,10 +146,10 @@ const FirebaseData = (): FirebaseDataReturn => {
   }
 
   const signOut = async (): Promise<void> => {
-    return authentication.signOut()
+    return authentication?.signOut() ?? Promise.resolve()
   }
 
-  return { authentication, fetchToken, onMessageListener, signOut }
+  return { authentication: authentication as Auth, fetchToken, onMessageListener, signOut }
 }
 
 export default FirebaseData

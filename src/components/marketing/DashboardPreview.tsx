@@ -11,16 +11,13 @@ export default function DashboardPreview() {
         </p>
         <div className="max-w-5xl mx-auto bg-fitflow-navy rounded-2xl p-2 border border-white/5 shadow-2xl shadow-fitflow-blue/5">
           <Image
-            src="/fitflow-dashboard-preview.png"
+            src="/images/fitflow-dashboard-preview.jpg"
             alt="Fit Flow fitness management dashboard — client management, health metrics, scheduling, and business analytics"
             width={1200}
             height={700}
             className="rounded-xl w-full h-auto"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+            priority
           />
-          <div className="aspect-[16/9] bg-gradient-to-br from-fitflow-blue/10 via-fitflow-surface to-fitflow-gold/5 rounded-xl flex items-center justify-center">
-            <p className="text-fitflow-muted text-sm">Dashboard Preview Coming Soon</p>
-          </div>
         </div>
       </div>
     </section>

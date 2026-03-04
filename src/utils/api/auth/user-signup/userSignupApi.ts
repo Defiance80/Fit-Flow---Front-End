@@ -13,6 +13,7 @@ export interface UserSignupParams {
   type?: string;
   profile?: File;
   firebase_token?: string;
+  pending_approval?: boolean;
   password?: string;
   confirm_password?: string;
 }
@@ -32,6 +33,7 @@ export interface UserSignupResponse {
   created_at: string;
   updated_at: string;
   token?: string;
+  pending_approval?: boolean;
   message?: string;
 }
 

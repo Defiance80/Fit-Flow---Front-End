@@ -110,12 +110,6 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
         if (response.error) {
           console.log("API error:", response.message);
           toast.error(response.message || "Failed to register user");
-        } else if (response.data?.pending_approval) {
-          // Account created but pending admin approval
-          toast.success("Account created! Your account is pending approval. You will receive an email once approved.", { duration: 8000 });
-          onOpenChange(false);
-          form.reset();
-          return { pendingApproval: true };
         }
       } else {
         console.log("response is null in component", response);
@@ -137,13 +131,10 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
       const idToken = await user.getIdToken(); // 👈 fetch idToken
       // Send email verification
       sendEmailVerification(user)
-      const result = await registerUser(user?.uid, user?.displayName || '', email, 'email', user?.photoURL || '', idToken, values?.password);
-      // Only open verify email modal if not pending approval
-      if (!result?.pendingApproval) {
-        setIsVerifyEmailModalOpen(true);
-        onOpenChange(false);
-        form.reset();
-      }
+      registerUser(user?.uid, user?.displayName || '', email, 'email', user?.photoURL || '', idToken, values?.password)
+      setIsVerifyEmailModalOpen(true);
+      onOpenChange(false);
+      form.reset();
     } catch (error) {
       handleError(error as FirebaseError)
     }
@@ -160,29 +151,29 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-[320px] sm:max-w-[450px] p-0 bg-[#0F172A] border border-white/10 rounded-lg shadow-xl max-575:max-h-[90vh] overflow-y-auto text-white [&_label]:text-[#94A3B8] [&_input]:bg-[#1E293B] [&_input]:border-white/10 [&_input]:text-white">
+        <DialogContent className="max-w-[320px] sm:max-w-[450px] p-0 bg-white rounded-lg shadow-xl max-575:max-h-[90vh] overflow-y-auto">
 
           <DialogHeader className="px-3 py-4 sm:p-6 !pb-0 gap-1">
-            <DialogTitle className="text-start text-xl font-semibold text-white">
+            <DialogTitle className="text-start text-xl font-semibold text-gray-900">
               {t("looks_like_youre_new_here")}
             </DialogTitle>
-            <DialogDescription className="text-start text-sm text-[#94A3B8]">
+            <DialogDescription className="text-start text-sm text-gray-500">
               {t("fill_details_setup_account")}
             </DialogDescription>
           </DialogHeader>
 
           {/* divider */}
-          <hr className=" border-white/10" />
+          <hr className=" border-gray-200" />
 
           {/* Email verification section */}
           <div className="px-3 sm:px-6">
-            <p className="text-sm text-[#94A3B8]">
+            <p className="text-sm text-gray-500">
               {t("we_will_sent_verification_link")}
             </p>
             <div className="flex items-center gap-1 mt-1">
-              <span className="font-medium text-white">{email}</span>
+              <span className="font-medium text-gray-900">{email}</span>
               <button
-                className="text-sm text-[#0D9488] font-medium"
+                className="text-sm primaryColor font-medium"
                 onClick={onEmailChange}
               >
                 {t("change")}
@@ -201,14 +192,14 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm sm:text-base font-medium text-[#94A3B8]">
+                    <FormLabel className="text-sm sm:text-base font-medium text-gray-700">
                       {t("name")} <span className="text-red-500 ml-[-5px]">*</span>
                     </FormLabel>
                     <FormControl>
                       <Input
                         placeholder={t("wrteam_placeholder")}
                         {...field}
-                        className="w-full px-4 py-2.5 h-12 border border-white/10 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                        className="w-full px-4 py-2.5 h-12 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                       />
                     </FormControl>
                     <FormMessage />
@@ -222,7 +213,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm sm:text-base font-medium text-[#94A3B8]">
+                    <FormLabel className="text-sm sm:text-base font-medium text-gray-700">
                       {t("password")} <span className="text-red-500 ml-[-5px]">*</span>
                     </FormLabel>
                     <FormControl>
@@ -231,7 +222,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                           type={showPassword ? "text" : "password"}
                           placeholder="••••••••"
                           {...field}
-                          className="w-full px-4 py-2.5 h-12 border border-white/10 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                          className="w-full px-4 py-2.5 h-12 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         />
                         <button
                           type="button"
@@ -239,9 +230,9 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? (
-                            <Eye className="h-5 w-5 text-[#94A3B8]" />
+                            <Eye className="h-5 w-5 text-gray-400" />
                           ) : (
-                            <EyeOff className="h-5 w-5 text-[#94A3B8]" />
+                            <EyeOff className="h-5 w-5 text-gray-400" />
                           )}
                         </button>
                       </div>
@@ -257,7 +248,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                 name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm sm:text-base font-medium text-[#94A3B8]">
+                    <FormLabel className="text-sm sm:text-base font-medium text-gray-700">
                       {t("confirm_password")}{" "}
                       <span className="text-red-500 ml-[-5px]">*</span>
                     </FormLabel>
@@ -267,7 +258,7 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                           type={showConfirmPassword ? "text" : "password"}
                           placeholder="••••••••"
                           {...field}
-                          className="w-full px-4 py-2.5 h-12 border border-white/10 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                          className="w-full px-4 py-2.5 h-12 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
                         />
                         <button
                           type="button"
@@ -277,9 +268,9 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
                           }
                         >
                           {showConfirmPassword ? (
-                            <Eye className="h-5 w-5 text-[#94A3B8]" />
+                            <Eye className="h-5 w-5 text-gray-400" />
                           ) : (
-                            <EyeOff className="h-5 w-5 text-[#94A3B8]" />
+                            <EyeOff className="h-5 w-5 text-gray-400" />
                           )}
                         </button>
                       </div>
@@ -291,18 +282,18 @@ const RegisterModal: React.FC<RegisterModalProps> = ({
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#0D9488] to-[#0F766E] text-white font-normal py-2.5 h-12 rounded-md hover:opacity-90 transition-all duration-300 md:text-xl"
+                className="w-full primaryBg text-white font-normal py-2.5 h-12 rounded-md hover:hoverBgColor transition-all duration-300 md:text-xl"
               >
                 {t("sign_up")}
               </Button>
 
               <div className="text-center">
-                <span className="text-sm text-[#94A3B8]">
+                <span className="text-sm text-gray-500">
                   {t("already_have_account")}
                 </span>{" "}
                 <button
                   type="button"
-                  className="text-sm text-[#0D9488] font-medium"
+                  className="text-sm primaryColor font-medium"
                   onClick={onSignInClick}
                 >
                   {t("sign_in")}

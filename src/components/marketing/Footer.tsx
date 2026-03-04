@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image src="/fitflow-logo.png" alt="Fit Flow" width={40} height={40} />
+              <Image src="/fitflow-logo.png" alt="Fit Flow" width={40} height={40} className="object-contain" />
               <span className="text-lg font-bold text-fitflow-text">Fit Flow</span>
             </Link>
             <p className="text-fitflow-muted text-sm leading-relaxed">
