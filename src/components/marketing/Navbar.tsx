@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-fitflow-navy/90 backdrop-blur-md border-b border-white/5">
       <div className="container mx-auto flex items-center justify-between py-3 px-4">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/fitflow-logo.png" alt="Fit Flow — Fitness Management Platform" width={48} height={48} className="object-contain" />
+          <Image src="/fitflow-logo.png" alt="Fit Flow — Fitness Management Platform" width={96} height={96} className="object-contain" />
           <span className="text-xl font-bold text-fitflow-text hidden sm:inline">Fit Flow</span>
         </Link>
         {/* Desktop */}
