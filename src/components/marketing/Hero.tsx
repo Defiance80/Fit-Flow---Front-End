@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Hero() {
@@ -10,6 +11,19 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050510]"
     >
+      {/* Hero background image */}
+      <Image
+        src="/hero-bg.png"
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+        style={{ opacity: 0.35 }}
+      />
+
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050510]/95 via-[#050510]/75 to-[#050510]/40 pointer-events-none" />
+
       {/* Ambient glow effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-fitflow-blue/8 rounded-full blur-[120px]" />
