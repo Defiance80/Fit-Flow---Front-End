@@ -1,14 +1,10 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 export default function Hero() {
-  const { ref: heroRef, isVisible } = useScrollReveal({ threshold: 0.1 });
-
   return (
     <section
-      ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050510]"
     >
       {/* Hero background image */}
@@ -45,11 +41,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — Copy */}
           <div
-            className={`transition-all duration-1000 ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
+            className="animate-[fadeUp_0.8s_ease-out_forwards]"
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-fitflow-blue/20 bg-fitflow-blue/5 mb-8">
@@ -159,11 +151,7 @@ export default function Hero() {
 
           {/* Right — Phone Mockups */}
           <div
-            className={`relative flex justify-center items-center transition-all duration-1000 delay-300 ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-12"
-            }`}
+            className="relative flex justify-center items-center animate-[fadeUp_0.8s_ease-out_0.3s_forwards]"
           >
             {/* Glow behind phones */}
             <div className="absolute w-[400px] h-[400px] bg-fitflow-blue/15 rounded-full blur-[80px]" />

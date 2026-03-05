@@ -26,23 +26,10 @@ export default {
 				}
 			},
 			fontFamily: {
-				montserrat: [
-					'var(--font-montserrat)',
-					'sans-serif'
-				],
-				poppins: [
-					'var(--font-poppins)',
-					'sans-serif'
-				],
-				roboto: [
-					'var(--font-roboto)',
-					'sans-serif'
-				],
-				sans: [
-					'var(--font-poppins)',
-					'system-ui',
-					'sans-serif'
-				]
+				montserrat: ['var(--font-montserrat)', 'sans-serif'],
+				poppins: ['var(--font-poppins)', 'sans-serif'],
+				roboto: ['var(--font-roboto)', 'sans-serif'],
+				sans: ['var(--font-poppins)', 'system-ui', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -50,58 +37,27 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			screens: {
-				"between-1800-2500": {
-					min: "1800px",
-					max: "2500px",
-				},
-				"between-1200-1399": {
-					min: "1200px",
-					max: "1399px",
-				},
-				"between-1400-1680": {
-					min: "1400px",
-					max: "1680px",
-				},
-				"between-992-1199": {
-					min: "992px",
-					max: "1199px",
-				},
-				"between-768-991": {
-					min: "768px",
-					max: "991px",
-				},
-				"between-576-767": {
-					min: "576px",
-					max: "767px",
-				},
-				"between-400-575": {
-					min: "400px",
-					max: "575px",
-				},
-				"max-1680": {
-					max: "1680px",
-				},
-				"max-1199": {
-					max: "1199px",
-				},
-				"max-575": {
-					max: "575px",
-				},
-				"max-479": {
-					max: "479px",
-				},
-				"max-399": {
-					max: "399px",
-				},
+				"between-1800-2500": { min: "1800px", max: "2500px" },
+				"between-1200-1399": { min: "1200px", max: "1399px" },
+				"between-1400-1680": { min: "1400px", max: "1680px" },
+				"between-992-1199": { min: "992px", max: "1199px" },
+				"between-768-991": { min: "768px", max: "991px" },
+				"between-576-767": { min: "576px", max: "767px" },
+				"between-400-575": { min: "400px", max: "575px" },
+				"max-1680": { max: "1680px" },
+				"max-1199": { max: "1199px" },
+				"max-575": { max: "575px" },
+				"max-479": { max: "479px" },
+				"max-399": { max: "399px" },
 			},
 			keyframes: {
 				float: {
-					'0%, 100%': {
-						transform: 'translateY(0)'
-					},
-					'50%': {
-						transform: 'translateY(-10px)'
-					}
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				fadeUp: {
+					from: { opacity: '0', transform: 'translateY(2rem)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
 				},
 				'accordion-down': {
 					from: { height: '0' },
